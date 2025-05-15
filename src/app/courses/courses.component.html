@@ -1,1 +1,43 @@
-<p>courses works!</p>
+<h2>Kurser</h2>
+
+<!--input fält för att söka på kursnamn eller kod för att filtrera-->
+<div class="filter">
+    <p>Filtrera kurser:</p>
+    <input type="text" placeholder="Sök på kurskod eller kursnamn..">
+</div>
+
+<!--dropdown för att filtrera på ämne för kurserna-->
+<div class="select">
+    <p>Välj ämne:</p>
+    <select>
+        <option value="">Ämnen</option>
+        
+    </select>
+</div>
+
+<!--tabell för att visa kurserna på courses sidan-->
+<div class="table-container">
+<table>
+    <thead>
+        <tr>
+            <th>Kurskod</th>
+            <th>Kursnamn</th>
+            <th>Poäng</th>
+            <th>Ämne</th>
+            <th>Kursplan</th>
+            <th>Lägg till kurs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let course of filteredCourses()">
+            <td>{{ course.courseCode }}</td>
+            <td>{{ course.courseName }}</td>
+            <td>{{ course.points }}</td>
+            <td>{{ course.subject }}</td>
+            <td><a [href]="course.syllabus" target="_blank">Visa Kursplan</a></td>
+            <td><button>Lägg till</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
