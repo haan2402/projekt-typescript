@@ -10,9 +10,9 @@
 <!--dropdown för att filtrera på ämne för kurserna-->
 <div class="select">
     <p>Välj ämne:</p>
-    <select>
-        <option value="">Ämnen</option>
-        
+    <select [(ngModel)]="filterSubject" (change)="useFilter()">
+        <option value="">Alla ämnen</option>
+        <option *ngFor="let subject of subjects()" [value]="subject">{{ subject }}</option>
     </select>
 </div>
 </div>

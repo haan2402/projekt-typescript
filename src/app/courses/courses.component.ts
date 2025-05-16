@@ -16,6 +16,8 @@ export class CoursesComponent {
   filteredCourses = signal<Course[]>([]);
   error = signal<string | null>(null);
   filterCourse: string = '';
+  subjects = signal<string[]>([]);
+  filterSubject = signal<string>('');
 
   private courseService = inject(CourseService);
 
@@ -30,6 +32,10 @@ async loadCourses() {
     this.courses.set(response);
     this.filteredCourses.set(response);
     console.table(this.courses());
+
+    //välj ämne från ämnes listan, sorterar i listan på fallande ordning
+    const oneSubject = Array.from(new Set(response.map(course => course.subject))).sort();
+    this.subjects.set(oneSubject);
   } catch (error){
     console.error(error);
     this.error.set("Gick inte att ladda in datan - försök igen om en stund!"); 
@@ -39,15 +45,15 @@ async loadCourses() {
 //filtrera kurser i input-fältet på kurskod och kursnamn
 useFilter(): void {
   const textFilter = this.filterCourse.toLowerCase();
+  const subjectFilter = this.filterSubject();
 
   const filtered = this.courses().filter(course => 
-    course.courseCode.toLocaleLowerCase().includes(textFilter) ||
-    course.courseName.toLocaleLowerCase().includes(textFilter)
+    (course.courseCode.toLocaleLowerCase().includes(textFilter) ||
+    course.courseName.toLocaleLowerCase().includes(textFilter)) &&
+    (subjectFilter === '' || course.subject === subjectFilter) //kan endast filtrera på det valda ämnet från listan
   );
   this.filteredCourses.set(filtered);
 }
-
-
 }
 
 
