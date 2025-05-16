@@ -4,7 +4,7 @@
 <div class="inputs">
 <div class="filter">
     <p>Filtrera kurser:</p>
-    <input type="text" placeholder="Sök på kurskod eller kursnamn..">
+    <input type="text" placeholder="Sök på kurskod eller kursnamn.." [(ngModel)]="filterCourse" (input)="useFilter()">
 </div>
 
 <!--dropdown för att filtrera på ämne för kurserna-->

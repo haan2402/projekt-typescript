@@ -15,6 +15,7 @@ export class CoursesComponent {
   courses = signal<Course[]>([]);
   filteredCourses = signal<Course[]>([]);
   error = signal<string | null>(null);
+  filterCourse: string = '';
 
   private courseService = inject(CourseService);
 
@@ -33,6 +34,17 @@ async loadCourses() {
     console.error(error);
     this.error.set("Gick inte att ladda in datan - försök igen om en stund!"); 
   }
+}
+
+//filtrera kurser i input-fältet på kurskod och kursnamn
+useFilter(): void {
+  const textFilter = this.filterCourse.toLowerCase();
+
+  const filtered = this.courses().filter(course => 
+    course.courseCode.toLocaleLowerCase().includes(textFilter) ||
+    course.courseName.toLocaleLowerCase().includes(textFilter)
+  );
+  this.filteredCourses.set(filtered);
 }
 
 
