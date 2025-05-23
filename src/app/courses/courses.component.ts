@@ -78,6 +78,11 @@ addToList(course: Course): void {
   this.scheduleService.addToList(course);
 }
 
+//skriver ut antal kurser som visas på sidan
+get amountOfCourses(): number {
+  return this.filteredCourses().length;
+}
+
 }
 
 
