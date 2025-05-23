@@ -14,13 +14,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let course of addedCourses">
+            <td>{{ course.courseCode }}</td>
+            <td>{{ course.courseName }}</td>
+            <td>{{ course.points }}</td>
+            <td>{{ course.subject }}</td>
+            <td><a [href]="course.syllabus" target="_blank">Visa kursplan</a></td>
         </tr>
     </tbody>
 </table>

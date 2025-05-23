@@ -3,6 +3,7 @@ import { Course } from '../models/course';
 import { CourseService } from '../services/course.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ScheduleService } from '../services/schedule.service';
 
 @Component({
   selector: 'app-courses',
@@ -20,6 +21,7 @@ export class CoursesComponent {
   filterSubject = signal<string>('');
 
   private courseService = inject(CourseService);
+  private scheduleService = inject(ScheduleService);
 
   ngOnInit() {
     this.loadCourses();
@@ -55,7 +57,6 @@ useFilter(): void {
   this.filteredCourses.set(filtered);
 }
 
-
 //sortera på antingen kurskod, kursnamn, poäng eller ämne
 sortCourse(field: 'courseCode' | 'courseName' | 'points' | 'subject'): void {
   const coursesSorted = this.filteredCourses().sort((a, b) => {
@@ -71,6 +72,12 @@ sortCourse(field: 'courseCode' | 'courseName' | 'points' | 'subject'): void {
   });
   this.filteredCourses.set(coursesSorted);
 }
+
+//hämtar metod för att lägga till kurser till ramschemat
+addToList(course: Course): void {
+  this.scheduleService.addToList(course);
+}
+
 }
 
 

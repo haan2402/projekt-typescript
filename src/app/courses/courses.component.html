@@ -37,7 +37,7 @@
             <td>{{ course.points }}</td>
             <td>{{ course.subject }}</td>
             <td><a [href]="course.syllabus" target="_blank">Visa Kursplan</a></td>
-            <td><button>Lägg till</button></td>
+            <td><button (click)="addToList(course)">Lägg till</button></td>
         </tr>
     </tbody>
 </table>
