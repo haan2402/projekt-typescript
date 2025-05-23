@@ -10,6 +10,11 @@ h2 {
 .schedule-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: block;
+}
+
+.mobile-container {
+    display: none;
 }
 
 /*styling table*/
@@ -100,4 +105,38 @@ button:hover {
     align-items: center;
     margin-top: 2em;
     margin-bottom: 2em;
+}
+
+/*styling for smaller screens*/
+@media(max-width: 768px) {
+    .schedule-container {
+        display: none;
+    }
+
+    .mobile-container {
+        display: block;
+        margin: 0 auto;
+        width: 400px;
+    }
+
+    .mobile-card {
+        border: 2px solid #ccc;
+        padding: 10px;
+        margin-bottom: 1em;
+        box-shadow: 0 2px 8px rgba(0 ,0 ,0 , 0.2);
+        border-radius: 10px;
+    }
+
+    .mobile-card p {
+        margin-bottom: 10px;
+    }
+
+    .mobile-card a {
+        color: black;
+    }
+
+    .mobile-card button {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 }

@@ -26,3 +26,16 @@
 </table>
 <p class="sum">Summering högskolepoäng: {{ summaryPoints }}</p>
 </div>
+
+<!--för mobilenheter-->
+<div class="mobile-container">
+    <div class="mobile-card" *ngFor="let course of addedCourses">
+        <p><strong>Kurskod: </strong> {{ course.courseCode }}</p>
+        <p><strong>Kursnamn: </strong> {{ course.courseName }}</p>
+        <p><strong>Poäng: </strong>  {{ course.points }}</p>
+        <p><strong>Ämne: </strong>  {{ course.subject }}</p>
+        <p><a [href]="course.syllabus" target="_blank">Visa Kursplan</a></p>
+        <button (click)="removeFromList(course.courseCode)">Ta bort</button>
+    </div>
+    <p class="sum">Summering högskolepoäng: {{ summaryPoints }}</p>
+</div>
