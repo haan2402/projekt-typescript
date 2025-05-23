@@ -47,3 +47,15 @@
 </table>
 </div>
 
+<!--för mobilenheter-->
+<div clasS="mobile-container">
+    <div class="mobile-card" *ngFor="let course of filteredCourses()">
+        <p><strong>Kurskod: </strong> {{ course.courseCode }}</p>
+        <p><strong>Kursnamn: </strong> {{ course.courseName }}</p>
+        <p><strong>Poäng: </strong>  {{ course.points }}</p>
+        <p><strong>Ämne: </strong>  {{ course.subject }}</p>
+        <p><a [href]="course.syllabus" target="_blank">Visa Kursplan</a></p>
+        <button (click)="addToList(course)">Lägg till</button>
+    </div>
+</div>
+
