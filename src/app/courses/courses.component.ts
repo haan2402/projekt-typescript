@@ -54,6 +54,23 @@ useFilter(): void {
   );
   this.filteredCourses.set(filtered);
 }
+
+
+//sortera på antingen kurskod, kursnamn, poäng eller ämne
+sortCourse(field: 'courseCode' | 'courseName' | 'points' | 'subject'): void {
+  const coursesSorted = this.filteredCourses().sort((a, b) => {
+    const firstValue = a[field];
+    const secondValue = b[field];
+
+    //kontrollerar om det är text eller siffror den ska sortera på
+    if(typeof firstValue === 'string' && typeof secondValue === 'string') {
+      return firstValue.localeCompare(secondValue);
+    } else {
+      return (firstValue as number) - (secondValue as number);
+    }
+  });
+  this.filteredCourses.set(coursesSorted);
+}
 }
 
 

@@ -22,10 +22,10 @@
 <table>
     <thead>
         <tr>
-            <th>Kurskod</th>
-            <th>Kursnamn</th>
-            <th>Poäng</th>
-            <th>Ämne</th>
+            <th (click)="sortCourse('courseCode')">Kurskod</th>
+            <th (click)="sortCourse('courseName')">Kursnamn</th>
+            <th (click)="sortCourse('points')">Poäng</th>
+            <th (click)="sortCourse('subject')">Ämne</th>
             <th>Kursplan</th>
             <th>Lägg till</th>
         </tr>
