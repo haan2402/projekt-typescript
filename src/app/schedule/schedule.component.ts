@@ -17,4 +17,9 @@ export class ScheduleComponent {
   get addedCourses(): Course[] {
   return this.scheduleService.courses();
 }
+
+//för att ta bort en kurs från ramschemat
+removeFromList(courseCode: string): void {
+  this.scheduleService.removeCourse(courseCode);
+}
 }

@@ -20,6 +20,7 @@
             <td>{{ course.points }}</td>
             <td>{{ course.subject }}</td>
             <td><a [href]="course.syllabus" target="_blank">Visa kursplan</a></td>
+            <td><button (click)="removeFromList(course.courseCode)">Ta bort</button></td>
         </tr>
     </tbody>
 </table>

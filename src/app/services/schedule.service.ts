@@ -36,4 +36,11 @@ private getFromLocalStorage(): Course [] {
   const data = localStorage.getItem('addedCourses');
   return data ? JSON.parse(data) : [];
 }
+
+//metod för att ta bort kurs från listan
+removeCourse(courseCode: string): void {
+  const deletedList = this.addedCourses().filter(c => c.courseCode !== courseCode);
+  this.addedCourses.set(deletedList);
+  this.saveToLocalStorage(deletedList);
+}
 }
