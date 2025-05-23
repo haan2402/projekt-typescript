@@ -18,8 +18,14 @@ export class ScheduleComponent {
   return this.scheduleService.courses();
 }
 
-//för att ta bort en kurs från ramschemat
-removeFromList(courseCode: string): void {
+  //för att ta bort en kurs från ramschemat
+  removeFromList(courseCode: string): void {
   this.scheduleService.removeCourse(courseCode);
-}
+  }
+
+  //för att kunna summera totalpoängen från den valda listan
+  get summaryPoints(): number {
+    return this.addedCourses.reduce((sum, course) => sum + course.points, 0);
+  }
+
 }
