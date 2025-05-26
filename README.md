@@ -38,7 +38,7 @@ ng serve
 
 ## Responsiv design
 För att göra sidan responsiv har jag använt mig av media queries. Eftersom jag använder mig av tabeller för att visa kurser på stora skärmar har jag valt att på små skärmar byta till
-<p>-element för att skriva ut data. Istället för att visa i tabellform så skrivs varje kurs ut "blockvis" för en bättre användarupplevelse för mindre enheter. 
+p-element för att skriva ut data. Istället för att visa i tabellform så skrivs varje kurs ut "blockvis" för en bättre användarupplevelse för mindre enheter. 
 
 ### Har använt mig av:
 
