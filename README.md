@@ -1,59 +1,50 @@
-# ProjektTypescript
+# Projekt Typescript
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+Detta projekt har gått ut på att skapa en fiktiv webbplats för ett lärosäte, där användare ska kunna söka kurser, filtrera ut kurser på ämne, och kunna lägga till kurser till ett
+ramschema. På ramschema sidan ska man kunna se en summering av totala högskolepoäng av valda kurser, det ska även finnas möjlighet att ta bort en kurs från listan.
+Kurserna hämtas från en JSON-fil som jag har lagt in under public katalogen.
 
-## Development server
+## Starta Liveserver
 
-To start a local development server, run:
+För att starta en Liveserver så kör man kommando:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Komponenter
 
-## Code scaffolding
+**src/app/courses** - Här finns HTML-kod, CSS-styling och Typescript kod för att skriva ut kurser, för att sortera kurser och filtrera kurser på kurssidan.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+**src/app/schedule** - Här finns HTML-kod, CSS-styling och Typescript kod för att visa valda kurser, och möjlighet att ta bort en kurs, samt se summering av högskolepoäng.
 
-```bash
-ng generate component component-name
-```
+## Services
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+**src/app/services/course** - Hämtar in JSON-filen
 
-```bash
-ng generate --help
-```
+**src/app/services/schedule** - Sparar ner valda kurser till LocalStorage och hämtar kurser från LocalStorage, metod för att lägga till kurser i ramschemat. 
 
-## Building
+## Funktioner för webbplatsen
 
-To build the project run:
+- Filtrering på kurser utifrån valt ämne.
+- Sortera på kurser i ett sökfält.
+- Sortera på kurser genom att klicka på rubriken Kurskod, Kursnman, Poäng eller Ämne.
+- Finns en text som visar hur många kurser som visas just nu på kurssidan.
+- En "Lägg till"-knapp för att lägga till kurser till ramschemat.
+- I ramschemat hämtas sparade kurser i LocalStorage och skrivs ut.
+- En summering av högskolepoängen för valda kurser.
+- En "Ta bort"-knapp för att ta bort en kurs från ramschemat.
+- Responsiv design.
 
-```bash
-ng build
-```
+## Responsiv design
+För att göra sidan responsiv har jag använt mig av media queries. Eftersom jag använder mig av tabeller för att visa kurser på stora skärmar har jag valt att på små skärmar byta till
+<p>-element för att skriva ut data. Istället för att visa i tabellform så skrivs varje kurs ut "blockvis" för en bättre användarupplevelse för mindre enheter. 
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Har använt mig av:
 
-## Running unit tests
+- HTML
+- CSS
+- Angular
+- TypeScript
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
