@@ -48,6 +48,15 @@
 </div>
 
 <!--för mobilenheter-->
+<div class="mobile-sorting">
+    <p>Sortera efter:</p>
+    <select [(ngModel)]="selectedSort" (change)="sortCourse(selectedSort)">
+    <option value="courseCode">Kurskod</option>
+    <option value="courseName">Kursnamn</option>
+    <option value="points">Poäng</option>
+    <option value="subject">Ämne</option>
+    </select>
+</div>
 <div class="mobile-container">
     <div class="mobile-card" *ngFor="let course of filteredCourses()">
         <p><strong>Kurskod: </strong> {{ course.courseCode }}</p>

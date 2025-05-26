@@ -47,6 +47,10 @@ h2 {
 
 }
 
+.mobile-sorting {
+    display: none;
+}
+
 .mobile-container {
     display: none;
 }
@@ -148,6 +152,26 @@ button:hover {
 
     .table-container {
         display: none;
+    }
+
+    .mobile-sorting {
+        display: block;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    .mobile-sorting p {
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .mobile-sorting select {
+    padding: 10px;
+    width: 200px;
+    font-size: 1em;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0 ,0 ,0 , 0.2);
     }
 
     .mobile-container {

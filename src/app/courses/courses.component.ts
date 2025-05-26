@@ -19,6 +19,7 @@ export class CoursesComponent {
   filterCourse: string = '';
   subjects = signal<string[]>([]);
   filterSubject = signal<string>('');
+  selectedSort: 'courseCode' | 'courseName' | 'points' | 'subject' = 'courseCode'; //för sortering dropdown för mobil enheter
 
   private courseService = inject(CourseService);
   private scheduleService = inject(ScheduleService);
